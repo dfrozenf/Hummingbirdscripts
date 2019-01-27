@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --job-name= STARmap81    # Job name
+#SBATCH --partition= 128x24 	#Partition size
+#SBATCH --mail-type=ALL               # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=<dfrozenf@ucsc.edu>   # Where to send mail	
+#SBATCH --ntasks=1                    # Run on a single CPU
+#SBATCH --time=00:05:00               # Time limit hrs:min:sec (you may not want this)
+#SBATCH --output=~/Logs/index.txt   # Standard output and error log
+#SBATCH --mem=250M                    # Allocated 250 megabytes of memory for the job.
+
+module load gnu star
+
+STAR \
+--runThreadN 8 \
+--genomeDir ~/Genomes/Celegans/index \
+--readFilesIn ~/RNASeq/SRR7443981.fq  \
+--outFileNamePrefix ~/RNAseq/STARmap/STAR81 \
+--outSAMtype BAM Unsorted SortedByCoordinate 
