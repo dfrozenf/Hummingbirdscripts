@@ -10,8 +10,8 @@
 module load gnu star
 
 STAR --runMode genomeGenerate \
---runThreadN 1  \
---genomeDIR ~/Genomes/Celegans/index \
---readFilesIn ~/Genomes/Celegans/PRJNA13758/c_elegans.PRJNA13758.WS253.genomic.fa \
+--runThreadN 1 \
+--genomeDir ~/Genomes/Celegans/index \
+--genomeFastaFiles ~/Genomes/Celegans/PRJNA13758/c_elegans.PRJNA13758.WS253.genomic.fa \
 --sjdbGTFfile ~/Genomes/Celegans/PRJNA13758/c_elegans.PRJNA13758.WS253.canonical_geneset.gtf \
---sjdbGTFfeatureExon exon
+--sjdbOverhang 99
